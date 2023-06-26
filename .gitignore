@@ -161,3 +161,7 @@ cython_debug/
 UI/obj/
 bin/Debug/
 .vs/
+*.txt
+bin/Release/UI.pdb
+bin/Release/UI.exe
+bin/Release/UI.exe.config
