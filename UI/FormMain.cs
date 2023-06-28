@@ -58,7 +58,7 @@ namespace UI
 
         private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            btnWebcam.PerformClick();
+            btnImage.PerformClick();
             StopProgressbar();
         }
 
