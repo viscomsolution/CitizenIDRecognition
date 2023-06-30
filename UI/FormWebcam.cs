@@ -142,23 +142,20 @@ namespace UI
             FormMain.GetInstance().StartProgressbar();
 
             watch = Stopwatch.StartNew();
-            Thread t = new Thread(() => Read(filePath));
+            Thread t = new Thread(() => Read((Bitmap)g_bmp.Clone()));
             t.Start();            
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        void Read(string imagePath)
+        void Read(Bitmap bmp)
         {
-            string result = Program.reader.Read(imagePath);
+            CardInfo result = Program.reader.Read(bmp);
             this.Invoke(new Action(() =>
             {
                 FormMain.GetInstance().StopProgressbar();
-                lbl_result.Text = result;
-                if(result == "")
-                {
-                    lbl_result.Text = "Not found";
-                }
+                lbl_result.Text = result.cardNumber;
+                picResult.Image = result.bitmap;
 
                 watch.Stop();
                 FormMain.GetInstance().PrintMessage("Elapsed: " + watch.ElapsedMilliseconds.ToString() + "ms");

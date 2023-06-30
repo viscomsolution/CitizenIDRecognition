@@ -42,11 +42,13 @@
             this.picInput = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.picWebcam = new System.Windows.Forms.PictureBox();
+            this.picResult = new System.Windows.Forms.PictureBox();
             this.panelLogo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWebcam)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picResult)).BeginInit();
             this.SuspendLayout();
             // 
             // timerProgressbar
@@ -72,7 +74,7 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(839, 70);
+            this.panelLogo.Size = new System.Drawing.Size(1023, 70);
             this.panelLogo.TabIndex = 21;
             // 
             // txt_fileName
@@ -117,18 +119,19 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 70);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(839, 435);
+            this.panel1.Size = new System.Drawing.Size(1023, 435);
             this.panel1.TabIndex = 24;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(188)))));
+            this.panel2.Controls.Add(this.picResult);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.picInput);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(839, 435);
+            this.panel2.Size = new System.Drawing.Size(1023, 435);
             this.panel2.TabIndex = 26;
             // 
             // label3
@@ -145,7 +148,7 @@
             // picInput
             // 
             this.picInput.BackColor = System.Drawing.Color.White;
-            this.picInput.Location = new System.Drawing.Point(21, 41);
+            this.picInput.Location = new System.Drawing.Point(3, 37);
             this.picInput.Name = "picInput";
             this.picInput.Size = new System.Drawing.Size(480, 320);
             this.picInput.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -173,11 +176,21 @@
             this.picWebcam.TabIndex = 24;
             this.picWebcam.TabStop = false;
             // 
+            // picResult
+            // 
+            this.picResult.BackColor = System.Drawing.Color.White;
+            this.picResult.Location = new System.Drawing.Point(489, 37);
+            this.picResult.Name = "picResult";
+            this.picResult.Size = new System.Drawing.Size(480, 320);
+            this.picResult.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picResult.TabIndex = 26;
+            this.picResult.TabStop = false;
+            // 
             // FormImage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(839, 505);
+            this.ClientSize = new System.Drawing.Size(1023, 505);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelLogo);
             this.Name = "FormImage";
@@ -191,6 +204,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWebcam)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picResult)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -209,6 +223,7 @@
         private System.Windows.Forms.PictureBox picInput;
         private System.Windows.Forms.Button btn_select;
         private System.Windows.Forms.TextBox txt_fileName;
+        private System.Windows.Forms.PictureBox picResult;
     }
 }
 

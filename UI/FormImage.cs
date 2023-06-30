@@ -77,11 +77,12 @@ namespace UI
 
         void Read(string imagePath)
         {
-            string result = Program.reader.Read(imagePath);
+            CardInfo result = Program.reader.Read(imagePath);
             this.Invoke(new Action(() =>
             {
                 FormMain.GetInstance().StopProgressbar();
-                lbl_result.Text = result;
+                lbl_result.Text = result.cardNumber;
+                picResult.Image = result.bitmap;
 
                 watch.Stop();
                 FormMain.GetInstance().PrintMessage("Elapsed: " + watch.ElapsedMilliseconds.ToString() + "ms");

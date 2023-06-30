@@ -40,7 +40,8 @@
     <Reference Include="AForge.Video.DirectShow">
       <HintPath>.\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
-    <Reference Include="CitizenIDReader">
+    <Reference Include="CitizenIDReader, Version=1.0.8581.28681, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\bin\Release\CitizenIDReader.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -131,5 +132,6 @@
   <ItemGroup>
     <None Include="Resources\picture_32.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
