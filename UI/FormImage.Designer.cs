@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormImage));
             this.timerProgressbar = new System.Windows.Forms.Timer(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.timerClear = new System.Windows.Forms.Timer(this.components);
@@ -38,17 +39,17 @@
             this.lbl_result = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.picResult = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.picInput = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.picWebcam = new System.Windows.Forms.PictureBox();
-            this.picResult = new System.Windows.Forms.PictureBox();
             this.panelLogo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picResult)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWebcam)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picResult)).BeginInit();
             this.SuspendLayout();
             // 
             // timerProgressbar
@@ -134,6 +135,16 @@
             this.panel2.Size = new System.Drawing.Size(1023, 435);
             this.panel2.TabIndex = 26;
             // 
+            // picResult
+            // 
+            this.picResult.BackColor = System.Drawing.Color.White;
+            this.picResult.Location = new System.Drawing.Point(489, 37);
+            this.picResult.Name = "picResult";
+            this.picResult.Size = new System.Drawing.Size(480, 320);
+            this.picResult.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picResult.TabIndex = 26;
+            this.picResult.TabStop = false;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -176,16 +187,6 @@
             this.picWebcam.TabIndex = 24;
             this.picWebcam.TabStop = false;
             // 
-            // picResult
-            // 
-            this.picResult.BackColor = System.Drawing.Color.White;
-            this.picResult.Location = new System.Drawing.Point(489, 37);
-            this.picResult.Name = "picResult";
-            this.picResult.Size = new System.Drawing.Size(480, 320);
-            this.picResult.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picResult.TabIndex = 26;
-            this.picResult.TabStop = false;
-            // 
             // FormImage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,6 +194,7 @@
             this.ClientSize = new System.Drawing.Size(1023, 505);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelLogo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormImage";
             this.Text = "Phần mềm đọc Căn cước Công dân";
             this.Load += new System.EventHandler(this.FormImage_Load);
@@ -202,9 +204,9 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picResult)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWebcam)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picResult)).EndInit();
             this.ResumeLayout(false);
 
         }

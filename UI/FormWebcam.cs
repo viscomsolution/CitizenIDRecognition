@@ -138,6 +138,7 @@ namespace UI
             string filePath = "input\\" + DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss") + "_" + RandomString(10) + ".jpg";
             g_bmp.Save(filePath, ImageFormat.Jpeg);
 
+            btnRead.Enabled = false;
             FormMain.GetInstance().PrintMessage("");
             FormMain.GetInstance().StartProgressbar();
 
@@ -155,11 +156,20 @@ namespace UI
             {
                 FormMain.GetInstance().StopProgressbar();
                 lbl_result.Text = result.cardNumber;
-                picResult.Image = result.bitmap;
 
+                if (result.bitmap == null)
+                {
+                    FormMain.GetInstance().PrintError(result.error);
+                }
+                else
+                {
+                    picResult.Image = (Bitmap)result.bitmap.Clone();
+                    FormMain.GetInstance().PrintMessage("Elapsed: " + watch.ElapsedMilliseconds.ToString() + "ms");
+                }
+                
+
+                btnRead.Enabled = true;
                 watch.Stop();
-                FormMain.GetInstance().PrintMessage("Elapsed: " + watch.ElapsedMilliseconds.ToString() + "ms");
-                FormMain.GetInstance().StopProgressbar();
             }));
         }
 

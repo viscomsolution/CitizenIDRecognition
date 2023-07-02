@@ -59,6 +59,8 @@ namespace UI
             if (txt_fileName.Text == "")
                 return;
 
+            btn_select.Enabled = false;
+
             lbl_result.Text = "";
             Bitmap bmp = TGMTimage.LoadBitmapWithoutLock(txt_fileName.Text);
             if(bmp != null)
@@ -80,12 +82,22 @@ namespace UI
             CardInfo result = Program.reader.Read(imagePath);
             this.Invoke(new Action(() =>
             {
+                watch.Stop();
                 FormMain.GetInstance().StopProgressbar();
                 lbl_result.Text = result.cardNumber;
-                picResult.Image = result.bitmap;
 
-                watch.Stop();
-                FormMain.GetInstance().PrintMessage("Elapsed: " + watch.ElapsedMilliseconds.ToString() + "ms");
+                if (result.bitmap == null)
+                {
+                    FormMain.GetInstance().PrintMessage(result.error);
+                }
+                else
+                {                    
+                    picResult.Image = result.bitmap;
+                    FormMain.GetInstance().PrintMessage("Elapsed: " + watch.ElapsedMilliseconds.ToString() + "ms");
+                }
+
+                btn_select.Enabled = true;                
+                
             }));
         }
     }
