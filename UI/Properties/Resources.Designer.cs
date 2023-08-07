@@ -93,6 +93,16 @@ namespace UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap folder_32px {
+            get {
+                object obj = ResourceManager.GetObject("folder_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap id_card_men_plastic_identification_vector_28042679 {
             get {
                 object obj = ResourceManager.GetObject("id-card-men-plastic-identification-vector-28042679", resourceCulture);

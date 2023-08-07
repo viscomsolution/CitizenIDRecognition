@@ -163,7 +163,7 @@ namespace UI
                 }
                 else
                 {
-                    picResult.Image = (Bitmap)result.bitmap.Clone();
+                    picResult.Image = result.bitmap;
                     FormMain.GetInstance().PrintMessage("Elapsed: " + watch.ElapsedMilliseconds.ToString() + "ms");
                 }
                 

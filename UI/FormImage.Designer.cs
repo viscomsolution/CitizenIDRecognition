@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormImage));
             this.timerProgressbar = new System.Windows.Forms.Timer(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.timerClear = new System.Windows.Forms.Timer(this.components);
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.chk_draw = new System.Windows.Forms.CheckBox();
             this.txt_fileName = new System.Windows.Forms.TextBox();
             this.btn_select = new System.Windows.Forms.Button();
             this.lbl_result = new System.Windows.Forms.Label();
@@ -44,6 +44,8 @@
             this.picInput = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.picWebcam = new System.Windows.Forms.PictureBox();
+            this.btn_read = new System.Windows.Forms.Button();
+            this.lbl_type = new System.Windows.Forms.Label();
             this.panelLogo.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -69,14 +71,30 @@
             // panelLogo
             // 
             this.panelLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(183)))), ((int)(((byte)(110)))));
+            this.panelLogo.Controls.Add(this.lbl_type);
+            this.panelLogo.Controls.Add(this.btn_read);
+            this.panelLogo.Controls.Add(this.chk_draw);
             this.panelLogo.Controls.Add(this.txt_fileName);
             this.panelLogo.Controls.Add(this.btn_select);
             this.panelLogo.Controls.Add(this.lbl_result);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(1023, 70);
+            this.panelLogo.Size = new System.Drawing.Size(1023, 76);
             this.panelLogo.TabIndex = 21;
+            // 
+            // chk_draw
+            // 
+            this.chk_draw.AutoSize = true;
+            this.chk_draw.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.chk_draw.ForeColor = System.Drawing.Color.White;
+            this.chk_draw.Location = new System.Drawing.Point(21, 47);
+            this.chk_draw.Name = "chk_draw";
+            this.chk_draw.Size = new System.Drawing.Size(120, 23);
+            this.chk_draw.TabIndex = 7;
+            this.chk_draw.Text = "Draw rectangle";
+            this.chk_draw.UseVisualStyleBackColor = true;
+            this.chk_draw.CheckedChanged += new System.EventHandler(this.chk_draw_CheckedChanged);
             // 
             // txt_fileName
             // 
@@ -105,7 +123,7 @@
             this.lbl_result.AutoSize = true;
             this.lbl_result.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_result.ForeColor = System.Drawing.Color.White;
-            this.lbl_result.Location = new System.Drawing.Point(507, 18);
+            this.lbl_result.Location = new System.Drawing.Point(611, 11);
             this.lbl_result.Name = "lbl_result";
             this.lbl_result.Size = new System.Drawing.Size(76, 30);
             this.lbl_result.TabIndex = 2;
@@ -118,9 +136,9 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.picWebcam);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 70);
+            this.panel1.Location = new System.Drawing.Point(0, 76);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1023, 435);
+            this.panel1.Size = new System.Drawing.Size(1023, 429);
             this.panel1.TabIndex = 24;
             // 
             // panel2
@@ -132,7 +150,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1023, 435);
+            this.panel2.Size = new System.Drawing.Size(1023, 429);
             this.panel2.TabIndex = 26;
             // 
             // picResult
@@ -187,6 +205,30 @@
             this.picWebcam.TabIndex = 24;
             this.picWebcam.TabStop = false;
             // 
+            // btn_read
+            // 
+            this.btn_read.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(148)))), ((int)(((byte)(188)))));
+            this.btn_read.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_read.ForeColor = System.Drawing.Color.White;
+            this.btn_read.Location = new System.Drawing.Point(507, 14);
+            this.btn_read.Name = "btn_read";
+            this.btn_read.Size = new System.Drawing.Size(94, 35);
+            this.btn_read.TabIndex = 8;
+            this.btn_read.Text = "Đọc";
+            this.btn_read.UseVisualStyleBackColor = false;
+            this.btn_read.Click += new System.EventHandler(this.btn_read_Click);
+            // 
+            // lbl_type
+            // 
+            this.lbl_type.AutoSize = true;
+            this.lbl_type.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_type.ForeColor = System.Drawing.Color.White;
+            this.lbl_type.Location = new System.Drawing.Point(611, 40);
+            this.lbl_type.Name = "lbl_type";
+            this.lbl_type.Size = new System.Drawing.Size(63, 30);
+            this.lbl_type.TabIndex = 9;
+            this.lbl_type.Text = "Type";
+            // 
             // FormImage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,7 +236,6 @@
             this.ClientSize = new System.Drawing.Size(1023, 505);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelLogo);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormImage";
             this.Text = "Phần mềm đọc Căn cước Công dân";
             this.Load += new System.EventHandler(this.FormImage_Load);
@@ -224,8 +265,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox picInput;
         private System.Windows.Forms.Button btn_select;
-        private System.Windows.Forms.TextBox txt_fileName;
         private System.Windows.Forms.PictureBox picResult;
+        public System.Windows.Forms.TextBox txt_fileName;
+        private System.Windows.Forms.CheckBox chk_draw;
+        private System.Windows.Forms.Button btn_read;
+        private System.Windows.Forms.Label lbl_type;
     }
 }
 

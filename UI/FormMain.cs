@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TGMT;
+using TGMTcs;
 
 namespace UI
 {
@@ -38,6 +39,8 @@ namespace UI
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            TGMTregistry.GetInstance().Init("CitizenIDReader");
+
             BackgroundWorker worker = new BackgroundWorker();
             worker.WorkerReportsProgress = true;
             worker.DoWork += worker_DoWork;
@@ -45,6 +48,8 @@ namespace UI
             worker.RunWorkerAsync();
 
             StartProgressbar();
+
+            lbl_version.Text = TGMTutil.GetVersion();
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -58,8 +63,17 @@ namespace UI
 
         private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            btnImage.PerformClick();
             StopProgressbar();
+
+            this.Text += " " + Program.reader.Version + " " + (Program.reader.IsLicense ? " (Licensed)" : " (Vui lòng liên hệ: 0939.825.125)");
+
+            string childform = TGMTregistry.GetInstance().ReadString("childform");
+            if (childform == "" || childform == "FormImage")
+                btnImage.PerformClick();
+            else if (childform == "FormWebcam")
+                btnWebcam.PerformClick();
+            else if (childform == "FormFolder")
+                btn_folder.PerformClick();
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -74,6 +88,13 @@ namespace UI
         private void btnImage_Click(object sender, EventArgs e)
         {
             OpenChildForm(FormImage.GetInstance(), sender);
+        }
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        private void btn_folder_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(FormFolder.GetInstance(), sender);
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -116,6 +137,7 @@ namespace UI
                 activeForm.Hide();
             }
 
+            TGMTregistry.GetInstance().SaveValue("childform", childForm.Name);
             ActiveButton(btnSender);
 
             activeForm = childForm;
@@ -125,7 +147,7 @@ namespace UI
             this.panelDesktop.Controls.Add(childForm);
             this.panelDesktop.Tag = childForm;
             childForm.BringToFront();
-            childForm.Show();
+            childForm.Show();            
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
