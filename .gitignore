@@ -165,3 +165,5 @@ bin/Debug/
 bin/Release/UI.pdb
 bin/Release/UI.exe
 bin/Release/UI.exe.config
+/ConsoleCs/obj
+/ConsoleCs/bin
