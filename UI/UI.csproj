@@ -15,8 +15,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;NET46</DefineConstants>
     <DebugType>full</DebugType>
     <PlatformTarget>x64</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
@@ -24,8 +24,8 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>..\bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>TRACE;NET46</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -43,13 +43,22 @@
     <Reference Include="AForge.Video.DirectShow">
       <HintPath>.\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
-    <Reference Include="CitizenIDReader, Version=1.0.8619.17006, Culture=neutral, processorArchitecture=AMD64">
+    <Reference Include="AltoControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\bin\Release\CitizenIDReader.dll</HintPath>
+      <HintPath>..\bin\AltoControls.dll</HintPath>
+    </Reference>
+    <Reference Include="CitizenIDReader, Version=1.0.8773.24392, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\CitizenIDReader.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="NAudio, Version=1.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\NAudio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -61,6 +70,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\lib\TGMTcs\src\TGMTimage.cs">
+      <Link>TGMTcs\TGMTimage.cs</Link>
+    </Compile>
+    <Compile Include="..\lib\TGMTcs\src\TGMTregistry.cs">
+      <Link>TGMTcs\TGMTregistry.cs</Link>
+    </Compile>
+    <Compile Include="..\lib\TGMTcs\src\TGMTsound.cs">
+      <Link>TGMTcs\TGMTsound.cs</Link>
+    </Compile>
+    <Compile Include="..\lib\TGMTcs\src\TGMTutil.cs">
+      <Link>TGMTcs\TGMTutil.cs</Link>
+    </Compile>
     <Compile Include="FormFolder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,9 +108,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TGMTcs\TGMTimage.cs" />
-    <Compile Include="TGMTcs\TGMTregistry.cs" />
-    <Compile Include="TGMTcs\TGMTutil.cs" />
     <Compile Include="ThemeColor.cs" />
     <EmbeddedResource Include="FormFolder.resx">
       <DependentUpon>FormFolder.cs</DependentUpon>
@@ -149,8 +167,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="idcard.ico" />
+    <None Include="Resources\qrreader_32.png" />
+    <None Include="Resources\360_F_324109330_f2P2ohY4fYETjXCrjHLzZaLTho9cYBV4.png" />
     <None Include="Resources\folder_32px.png" />
     <None Include="Resources\id-card-men-plastic-identification-vector-28042679.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -69,8 +69,9 @@ namespace UI
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        void Read()
+        private void Read()
         {
+
             if (txt_fileName.Text == "")
                 return;
 
@@ -96,37 +97,34 @@ namespace UI
             CardInfo result = Program.reader.Read(filePath);
             watch.Stop();
 
-            this.Invoke(new Action(() =>
+            FormMain.GetInstance().StopProgressbar();
+
+            if (result.type == CardInfo.CardType.CMND9)
+                lbl_type.Text = "CMND9";
+            else if (result.type == CardInfo.CardType.CMND12)
+                lbl_type.Text = "CMND12";
+            else if (result.type == CardInfo.CardType.CCCD_Barcode)
+                lbl_type.Text = "CCCD Barcode";
+            else if (result.type == CardInfo.CardType.CCCD_Chip)
+                lbl_type.Text = "CCCD Chip";
+            else if (result.type == CardInfo.CardType.CCCD_Chip)
+                lbl_type.Text = "CCCD Chip Back";
+
+            lbl_result.Text = result.cardNumber;
+
+            if (result.bitmap == null)
             {
-                
-                FormMain.GetInstance().StopProgressbar();
+                FormMain.GetInstance().PrintMessage(result.error);
+            }
+            else
+            {                    
+                picResult.Image = result.bitmap;
+                FormMain.GetInstance().PrintMessage("Elapsed: " + watch.ElapsedMilliseconds.ToString() + "ms");
+            }
 
-                if (result.type == CardInfo.CardType.CMND9)
-                    lbl_type.Text = "CMND9";
-                else if (result.type == CardInfo.CardType.CMND12)
-                    lbl_type.Text = "CMND12";
-                else if (result.type == CardInfo.CardType.CCCD_Barcode)
-                    lbl_type.Text = "CCCD Barcode";
-                else if (result.type == CardInfo.CardType.CCCD_Chip)
-                    lbl_type.Text = "CCCD Chip";
-                else if (result.type == CardInfo.CardType.CCCD_Chip)
-                    lbl_type.Text = "CCCD Chip Back";
+            btn_select.Enabled = true;
+            btn_read.Enabled = true;
 
-                lbl_result.Text = result.cardNumber;
-
-                if (result.bitmap == null)
-                {
-                    FormMain.GetInstance().PrintMessage(result.error);
-                }
-                else
-                {                    
-                    picResult.Image = result.bitmap;
-                    FormMain.GetInstance().PrintMessage("Elapsed: " + watch.ElapsedMilliseconds.ToString() + "ms");
-                }
-
-                btn_select.Enabled = true;
-                btn_read.Enabled = true;
-            }));
         }
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////

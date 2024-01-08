@@ -247,6 +247,8 @@ namespace UI
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             FormWebcam.GetInstance().StopAllCamera();
+            if (activeForm != null)
+                activeForm.Close();
         }
     }
 }
