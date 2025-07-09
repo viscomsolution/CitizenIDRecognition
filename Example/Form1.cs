@@ -26,10 +26,10 @@ namespace Example
         private void Form1_Load(object sender, EventArgs e)
         {
             //đọc kết quả từ ảnh
-            string result = reader.Read("cccd.jpg");
+            CardInfo result = reader.Read("cccd.jpg");
 
             //gán kết quả đọc được vào textbox
-            textBox1.Text = result;
+            textBox1.Text = result.cardNumber;
         }
     }
 }

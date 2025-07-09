@@ -1,8 +1,8 @@
-# CitizenIDReader
+# CitizenID Recognition
 
 Phần mềm đọc Căn cước công dân
 
-https://viscomsolution.com/phan-mem-doc-thong-tin-can-cuoc-cong-dan/
+https://viscomsolution.com/phan-mem-doc-cccd-mien-phi/
 
 ![](images/cccd2.jpg)
 
